@@ -1,0 +1,54 @@
+#include "shell.h"
+/**
+ * main - Entry into the calculator program
+ * Return: Always (0) Success.
+ */
+int main(void)
+{
+	int input1, input2, result, choice;
+
+	printf("Enter 0, 1, 2, or 3 for add, sub, mul, or div respectively: ");
+	scanf("%d", &choice);
+	while (choice < 0 || choice > 3)
+	{
+		printf("\nPlease Either enter 0, 1, 2, or 3 for add, ");
+		printf(" sub, mul, or div respectively: ");
+		scanf("%d", &choice);
+	}
+	printf("\nNow enter the first number: ");
+	scanf("%d", &input1);
+	printf("\nNow enter the second number: ");
+	scanf("%d", &input2);
+	result = calc(input1, input2, choice);
+	printf("The final result is: %d\n", result);
+	return (0);
+}
+
+/**
+ * calc - A function that performs basic arithmetic
+ * @a: first number
+ * @b: second number
+ * @c: int value that determines type of arithmetic
+ *
+ * Return: returns value of arithmetic process.
+ */
+int calc(int a, int b, int c)
+{
+	int result;
+
+	switch (c)
+	{
+		case 0:
+			result = a + b;
+			break;
+		case 1:
+			result = a - b;
+			break;
+		case 2:
+			result = a * b;
+			break;
+		default:
+			result = a / b;
+	}
+	return (result);
+}
