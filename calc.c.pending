@@ -1,8 +1,12 @@
-#include "shell.h"
+#include <stdio.h>
+
 /**
  * main - Entry into the calculator program
  * Return: Always (0) Success.
  */
+
+int calc(int a, int b, int c);
+
 int main(void)
 {
 	int input1, input2, result, choice;
