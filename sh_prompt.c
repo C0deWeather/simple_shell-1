@@ -6,7 +6,7 @@
  * @env: Environment variable passed from main function
  * Return: Always 0 (success)
  */
-int sh_prompt(char **argv __attribute__((unused)), char **env __attribute__((unused)))
+int sh_prompt(char **argv, char **env)
 {
 	int i;
 	size_t n;
@@ -25,7 +25,7 @@ int sh_prompt(char **argv __attribute__((unused)), char **env __attribute__((unu
 		get = getline(&usr_cmd, &n, stdin);
 
 		/**
-		 * Handling getline failure
+		 * Handling getline failure and newline char
 		 */
 		if (get == -1)
 		{
@@ -34,11 +34,6 @@ int sh_prompt(char **argv __attribute__((unused)), char **env __attribute__((unu
 			return (1);
 		}
 		i = 0;
-
-		/**
-		 * Taking out the newline character added
-		 * by the getline function
-		 */
 		while (usr_cmd[i])
 		{
 			if (usr_cmd[i] == '\n')
@@ -48,6 +43,9 @@ int sh_prompt(char **argv __attribute__((unused)), char **env __attribute__((unu
 			}
 			i++;
 		}
+		/**
+		 * Note: whatever the user type is now in  usr_cmd buffer
+		 */
 	}
 	return (0);
 }
