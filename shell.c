@@ -7,11 +7,11 @@
  * @env: the environment variable
  * Return: Alway 0 (succes)
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv, char **envi __attribute((unused)))
 {
 	while (argv[0] && argc)
 	{
-		sh_prompt(argv, env);
+		read_line();
 	}
 	return (0);
 }

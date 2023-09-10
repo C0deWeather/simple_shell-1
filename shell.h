@@ -6,6 +6,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int sh_prompt(char **argv, char **env);
+char read_line(void);
 
 #endif
