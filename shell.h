@@ -6,6 +6,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char read_line(void);
+void read_line(char **cmd_buff);
 
 #endif
