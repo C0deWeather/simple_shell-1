@@ -26,7 +26,7 @@ void read_line(char **cmd_buff)
 	if (get == -1)
 	{
 		perror("Getline has failed");
-		free(*cmd_buff);	
+		free(*cmd_buff);
 	}
 
 	/**
