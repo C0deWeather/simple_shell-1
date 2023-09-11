@@ -21,5 +21,6 @@ int main(int argc, char **argv, char **envi __attribute__((unused)))
 		 */
 	}
 	free(cmd_buff);
+	cmd_buff = NULL;
 	return (0);
 }

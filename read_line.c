@@ -26,7 +26,6 @@ void read_line(char **cmd_buff)
 	if (get == -1)
 	{
 		perror("Getline has failed");
-		free(*cmd_buff);
 	}
 
 	/**
@@ -36,11 +35,11 @@ void read_line(char **cmd_buff)
 	i = 0;
 	while (*(*cmd_buff + i))
 	{
-	if ((*(*cmd_buff) + i) == '\n')
-	{
-		*(*cmd_buff + i) = '\0';
-		break;
-	}
-	i++;
+		if (*(*cmd_buff + i) == '\n')
+		{
+			*(*cmd_buff + i) = '\0';
+			break;
+		}
+		i++;
 	}
 }
