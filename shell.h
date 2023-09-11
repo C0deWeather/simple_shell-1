@@ -7,5 +7,6 @@
 #include <unistd.h>
 
 int sh_prompt(char **argv, char **env);
+char **parse_line(char *line);
 
 #endif

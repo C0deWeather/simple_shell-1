@@ -25,7 +25,7 @@ char **parse_line(char *line)
 	}
 	/*tokenize line*/
 	tokens[i] = strtok(line, delimiter);
-	while (token[i] != NULL)
+	while (tokens[i] != NULL)
 	{
 		i++;
 		tokens = realloc(tokens, (i + 1) * sizeof(char *));
