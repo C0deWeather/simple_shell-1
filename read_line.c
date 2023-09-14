@@ -6,7 +6,7 @@
  * Description: The read_line function will also transfer the user input
  * into the cmd buffer passed to it by reference.
  * @cmd_buff: pointer to a dynamic memory for storing user input
- * Return: Will return -1 on failure or eof condition 
+ * Return: Will return -1 on failure or eof condition
  * or int number of char read upon success
  */
 int read_line(char **cmd_buff)
