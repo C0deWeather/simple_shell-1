@@ -44,5 +44,5 @@ int read_line(char **cmd_buff)
 		}
 		i++;
 	}
-	return (0);
+	return (i);
 }
