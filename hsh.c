@@ -11,14 +11,11 @@ int main(int argc, char **argv, char **envi __attribute__((unused)))
 {
 	char *cmd_buff = NULL;
 
-	while (argv[0] && argc)
-	{
-		printf("cisfun$ ");
-		read_line(&cmd_buff);
-		/** 
-		 * <<<<<< CALL PARSER HERE >>>>>>
-		 * <<< USER INPUT IS NOW IN cmd_buff dynamically >>>
-		 */
+	hsh_loop();
+	/** 
+	 * <<<<<< CALL PARSER HERE >>>>>>
+	 * <<< USER INPUT IS NOW IN cmd_buff dynamically >>>
+	 */
 	}
 	free(cmd_buff);
 	cmd_buff = NULL;
