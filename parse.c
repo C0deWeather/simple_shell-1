@@ -10,7 +10,6 @@ token parse_line(char *line)
 {
 	int i = 0;
 	char delimiter[] = " ";
-	token usr_input = {NULL, NULL};
 	char **tokens = malloc(2 * sizeof(char*));
 
 	/*check if dynamic memory allocation was successful*/
@@ -37,7 +36,5 @@ token parse_line(char *line)
 		}
 		tokens[i] = strtok(NULL, delimiter);
 	}
-	usr_input.cmd = tokens[0];
-	usr_input.args = tokens + 1;
 	return (usr_input);
 }
