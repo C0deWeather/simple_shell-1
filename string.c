@@ -122,3 +122,24 @@ char *_strdup(char *str)
 	return (_strcpy(s, str));
 }
 
+/**
+ * _strcmp - compares two strings
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: returns 0 if the strings match, and -1 otherwise.
+ */
+int _strncmp(char *s1, char *s2, size_t n)
+{
+	while (n > 0)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2)
+		if (*s1 == '\0')
+			break;
+	s1++;
+	s2++;
+	n--;
+	}
+	return (0);
+}
