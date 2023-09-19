@@ -32,7 +32,7 @@ int read_line(char **cmd_buff)
 	}
 
 	/**
-	 * Handling the eof condition for getline
+	 * Handliing newline char for getline
 	 * by replacing '\n' with '\0'
 	 */
 	i = 0;

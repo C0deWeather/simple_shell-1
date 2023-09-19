@@ -13,7 +13,7 @@
 extern char **environ;
 char **parse_line(char *line);
 char **parse(char *str);
-void hsh_loop(void)
+//void hsh_loop(void)
 void read_line(char **cmd_buff);
 int print_prompt(char *prompt);
 char *find_exe(char *cmd);

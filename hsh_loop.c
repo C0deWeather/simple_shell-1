@@ -9,9 +9,10 @@ void hsh_loop(void)
 	int status = 0;
 	char **line;
 
-	while(1)
+	while(!(0))
 	{
-		print_prompt("cisfun$ ");
+		if (isatty(STDIN_FILENO))
+			print_prompt("cisfun$ ");
 		status = read_line(&cmd_buff);
 		/*End-of-file condition*/
 		if (status == -1)

@@ -7,16 +7,16 @@
  * @env: the environment variable
  * Return: Alway 0 (succes)
  */
-int main(int argc, char **argv, char **envi __attribute__((unused)))
+int main(int argc, char **argv, char **envp)
 {
-	char *cmd_buff = NULL;
-
-	hsh_loop();
+	char *name = "PATH";
+	char *PATH = get_env(name, envp);
+	hsh_loop();;
 	/** 
 	 * <<<<<< CALL PARSER HERE >>>>>>
 	 * <<< USER INPUT IS NOW IN cmd_buff dynamically >>>
 	 */
-	}
+	
 	free(cmd_buff);
 	cmd_buff = NULL;
 	return (0);
