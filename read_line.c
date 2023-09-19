@@ -19,17 +19,13 @@ int read_line(char **cmd_buff)
 	 * Taking the user input
 	 */
 	n = 0;
-	*cmd_buff = malloc(sizeof(char) * 50);
 	get = getline(&(*cmd_buff), &n, stdin);
 
 	/**
 	 * Handling getline errors
 	 */
 	if (get == -1)
-	{
-		perror("Getline has failed");
 		return (-1);
-	}
 
 	/**
 	 * Handliing newline char for getline

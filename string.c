@@ -105,12 +105,12 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
+	char *s;
+	unsigned int size;
+
 	if (str == NULL)
 		return (NULL);
-
-	char *s;
-	unsigned int size = _strlen(str) + 1;
-
+	size = _strlen(str) + 1;
 	/*Allocate dynamic meemory to array*/
 	s = (char *)malloc(size);
 
@@ -120,24 +120,4 @@ char *_strdup(char *str)
 
 	/*Copy contents of str into s*/
 	return (_strcpy(s, str));
-}
-
-/**
- * _strncmp - compares n number of characters between two strings
- * @s1: first string input
- * @s2: second string input
- *
- * Return: 0 if the comparism match, and <1 or >1 if otherwise.
- */
-int _strncmp(char *s1, char *s2, int n)
-{
-	while (n > 0)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-		n--;
-	}
-	return (0);
 }

@@ -12,7 +12,7 @@ char *find_exe(char *cmd)
 	char *dir, *temp, *pathname;
 	DIR *dir_stream;
 	struct dirent *entry;
-	char *path = _strdup(PATH);
+	char *path = _strdup(get_env("PATH"));
 
 	dir = strtok(path, ":");
 	/*open and read directory*/

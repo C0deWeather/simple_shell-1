@@ -11,11 +11,11 @@
 #include <dirent.h>
 
 extern char **environ;
+int _putchar(char c);
 char **parse_line(char *line);
-char **parse(char *str);
-void hsh_loop(void)
-void read_line(char **cmd_buff);
-int print_prompt(char *prompt);
+void hsh_loop(void);
+int read_line(char **cmd_buff);
+void print_prompt(char *prompt);
 char *find_exe(char *cmd);
 char *_strcat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
@@ -24,5 +24,6 @@ char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 int _strncmp(char *s1, char *s2, int n);
 char *get_env(char *name);
+int cmd_exec(char **input);
 
 #endif
