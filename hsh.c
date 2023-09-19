@@ -9,8 +9,8 @@
  */
 int main(int argc, char **argv, char **envp)
 {
-	 char *name = "PATH";
-	 char *PATH = get_env(name, envp);
+	char *name = "PATH";
+	char *PATH = get_env(name, envp);
 	hsh_loop();;
 	/** 
 	 * <<<<<< CALL PARSER HERE >>>>>>
