@@ -7,9 +7,10 @@
  * @env: the environment variable
  * Return: Alway 0 (succes)
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv, char **envp)
 {
-	 extern char *PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+	 char *name = "PATH";
+	 char *PATH = get_env(name, envp);
 	hsh_loop();;
 	/** 
 	 * <<<<<< CALL PARSER HERE >>>>>>

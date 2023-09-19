@@ -123,23 +123,21 @@ char *_strdup(char *str)
 }
 
 /**
- * _strcmp - compares two strings
- * @s1: first string
- * @s2: second string
+ * _strncmp - compares n number of characters between two strings
+ * @s1: first string input
+ * @s2: second string input
  *
- * Return: returns 0 if the strings match, and -1 otherwise.
+ * Return: 0 if the comparism match, and <1 or >1 if otherwise.
  */
-int _strncmp(char *s1, char *s2, size_t n)
+int _strncmp(char *s1, char *s2, int n)
 {
 	while (n > 0)
 	{
 		if (*s1 != *s2)
-			return (*s1 - *s2)
-		if (*s1 == '\0')
-			break;
-	s1++;
-	s2++;
-	n--;
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+		n--;
 	}
 	return (0);
 }
