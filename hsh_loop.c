@@ -25,7 +25,15 @@ void hsh_loop(void)
 			continue;
 		}
 		line = parse_line(cmd_buff);
-	  	cmd_exec(line);
+
+  	/*<<<<< Added line start here >>>>>>*/
+		if (!(check_builtin()))
+			;
+		else
+		{
+	/*<<<<< Added line ends here >>>>>*/
+		cmd_exec(line);
+		}
 		free(cmd_buff);
 		free(line);
 	}
