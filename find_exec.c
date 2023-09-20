@@ -35,7 +35,6 @@ char *find_exe(char *cmd)
 		dir = strtok(NULL, ":");
 	}
 	free(path);
-	closedir(dir_stream);
 	return (NULL);
 }
 

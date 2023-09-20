@@ -18,12 +18,16 @@ void hsh_loop(void)
 		{
 			free(cmd_buff);
 			break;
-		/*Ctrl+d was pressed*/
 		}
 		if (*cmd_buff == '\0')
-			continue; /*No input condition*/
+		{
+			free(cmd_buff);
+			continue;
+		}
 		line = parse_line(cmd_buff);
 	  	cmd_exec(line);
+		free(cmd_buff);
+		free(line);
 	}
 	_putchar('\n');
 }

@@ -14,14 +14,17 @@ int cmd_exec(char **input)
 	env = environ;
 	abs_path = find_exe(*input);
 	if (abs_path == NULL)
+	{
+		perror("Not found");
 		return (-1);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("failure creating process");
 		return (1);
 	}
-	if (pid == 0)
+	else if (pid == 0)
 	{
 		if (execve(abs_path, input, env) == -1)
 		{
@@ -29,7 +32,8 @@ int cmd_exec(char **input)
 			return (1);
 		}
 	}
-	if (!(pid <= 0))
+	if (pid > 0)
 		wait(&status);
+	free(abs_path);
 	return (0);
 }
