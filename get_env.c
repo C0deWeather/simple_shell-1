@@ -40,7 +40,7 @@ char *get_env(char *name)
 		 * Check if the argument is of the form "NAME=VALUE"
 		 */
 		temp = _strncmp(var_line, name, _strlen(name));
-		if (_strncmp(temp == 0 && var_line[_strlen(name)] == '=')
+		if (temp == 0 && var_line[_strlen(name)] == '=')
 			return (var_line + _strlen(name) + 1);
 	}
 	return (NULL);

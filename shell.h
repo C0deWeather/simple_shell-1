@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <string.h>
 #include <dirent.h>
+#include <sys/wait.h>
 
 extern char **environ;
 int _putchar(char c);

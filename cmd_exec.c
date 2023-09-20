@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * cmd_exec - resposible for cmd execution in forked process
  * @input: Array of strings taken as input
@@ -23,7 +23,7 @@ int cmd_exec(char **input)
 	}
 	if (pid == 0)
 	{
-		if (execve(abs_path, temp_cmd, env) == -1)
+		if (execve(abs_path, input, env) == -1)
 		{
 			perror("argv[0]: ");
 			return (1);

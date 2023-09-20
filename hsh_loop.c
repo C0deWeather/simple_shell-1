@@ -7,7 +7,7 @@ void hsh_loop(void)
 {
 	char *cmd_buff = NULL;
 	int status = 0;
-/*	char **line;*/
+	char **line;
 
 	while(!(0))
 	{
@@ -22,10 +22,8 @@ void hsh_loop(void)
 		}
 		if (*cmd_buff == '\0')
 			continue; /*No input condition*/
-	/**
-		  line = parse_line(cmd_buff);
+		line = parse_line(cmd_buff);
 	  	cmd_exec(line);
-	**/
 	}
 	_putchar('\n');
 }
