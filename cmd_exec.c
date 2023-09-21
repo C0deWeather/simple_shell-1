@@ -8,19 +8,26 @@ int cmd_exec(char **input)
 {
 	char *abs_path;
 	pid_t pid;
-	int status;
+	int status, i;
 	char **env;
+	char *cmd_list[] = {NULL};
 
 	env = environ;
-	abs_path = find_exe(*input);
+	if (is_a_path(input[0]) == 0)
+		abs_path = input[0];
+	else
+		abs_path = find_exe(*input);
 	if (abs_path == NULL)
 		return (-1);
+	cmd_list[0] = abs_path;
+	for (i = 0; input[i]; i++)
+		cmd_list[i + 1] = input[i];
 	pid = fork();
 	if (pid == -1)
 		return (-1);
 	else if (pid == 0)
 	{
-		if (execve(abs_path, input, env) == -1)
+		if (execve(abs_path, cmd_list, env) == -1)
 			return (-1);
 	}
 	if (pid > 0)

@@ -8,9 +8,6 @@
  */
 int main(int ac, char **av)
 {
-	/*Non-interactive mode*/
-
-	/*Interactive mode*/
 	if (ac == 1)
 		hsh_loop(av[0]);
 	return (0);

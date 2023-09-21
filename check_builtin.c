@@ -9,24 +9,25 @@ void builtin_exec(char **line, int actual_case)
 {
 	switch (actual_case)
 	{
-		case 0:
-			/*call env*/
-			builtin_env(line);
-			break;
-		case 1:
-			/*call exit*/
-			break;
-		case 2:
-			/*call setenv*/
-			break;
-		case 3:
-			/*call unsetenv*/
-			break;
-		case 4:
-			/*call cd*/
-			break;
-		default:
-			break;
+	case 0:
+		/*call env*/
+		builtin_env(line);
+		break;
+	case 1:
+		/*call exit*/
+		builtin_exit();
+		break;
+	case 2:
+		/*call setenv*/
+		break;
+	case 3:
+		/*call unsetenv*/
+		break;
+	case 4:
+		/*call cd*/
+		break;
+	default:
+		break;
 	}
 }
 
