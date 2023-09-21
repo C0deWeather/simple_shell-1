@@ -10,7 +10,7 @@ void hsh_loop(char *prg_path)
 	char *cmd_buff = NULL;
 	int status = 0, counter = 1, i = 0;
 	char **line;
-	container state;
+	/*container state;*/
 
 	while (1)
 	{
@@ -28,12 +28,12 @@ void hsh_loop(char *prg_path)
 			continue;
 		}
 		line = parse_line(cmd_buff);
-		free(cmd_buff);
-		state.p_path = prg_path; state.i = counter; state.usr_input = line;
+		/*state.p_path = prg_path; state.i = counter; state.usr_input = line;*/
 		i = cmd_exec(line);
 		if (i == -1)
 			_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
 		free(line);
+		free(cmd_buff);
 		counter++;
 	}
 	_putchar('\n');
