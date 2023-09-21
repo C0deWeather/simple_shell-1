@@ -24,7 +24,7 @@ typedef struct container
 	int i;
 } container;
 
-void exit(container value);
+void exit_hsh(container value);
 extern char **environ;
 char **parse_line(char *line);
 void hsh_loop(char *prg_path);

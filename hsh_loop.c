@@ -29,7 +29,7 @@ void hsh_loop(char *prg_path)
 		}
 		line = parse_line(cmd_buff);
 		free(cmd_buff);
-		state = {prg_path, line, counter};
+		state.p_path = prg_path; state.i = counter; state.usr_input = line;
 		i = cmd_exec(line);
 		if (i == -1)
 			_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");

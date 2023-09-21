@@ -4,14 +4,14 @@
  * exit - exits the shell program
  * @usr_input - array of strings containing user's input
  */
-void exit(container value)
+void exit_hsh(container value)
 {
-	char **args;
+	/*char **args;*/
 	int i = 0;
 
-	if (valid.usr_input[i + 1] == NULL)
+	if (value.usr_input[i + 1] == NULL)
 	{
-		free(valid.usr_input);
+		free(value.usr_input);
 		exit(EXIT_SUCCESS);
 	}
 
