@@ -16,9 +16,9 @@
  */
 typedef struct number
 {
-    int *array;
-    int size;
-    int sign;
+	int *array;
+	int size;
+	int sign;
 } number;
 
 typedef int (*FuncPtr)(int);
@@ -32,9 +32,9 @@ typedef int (*UnPtr)(size_t);
  */
 typedef struct print_d
 {
-    char specifier;
-    FuncPtr function;
-} SpecifierInfo;
+	char specifier;
+	FuncPtr function;
+} SpecifierInf;
 
 /**
  * print_u - represents a format specifier and a corresponding function pointer
@@ -43,8 +43,8 @@ typedef struct print_d
  */
 typedef struct print_u
 {
-    char s;
-    UnPtr u;
+	char s;
+	UnPtr u;
 } print_u;
 
 int _puts(char *str);
@@ -61,6 +61,7 @@ int print_un(size_t n);
 number parse_un(size_t n);
 UnPtr CheckUnSpecifier(char c);
 int ChoSpecFunc(char c, va_list args);
-
+void builtin_exec(char **line, int actual_case);
+int check_builtin(char **line);
 #endif
 

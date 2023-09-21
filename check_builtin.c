@@ -41,9 +41,7 @@ void builtin_exec(char **line, int actual_case)
 int check_builtin(char **line)
 {
 	int i;
-	char **builtin;
-
-	builtin = {"env", "exit", "setenv", "unsetenv", "cd", NULL};
+	char *builtin[] = {"env", "exit", "setenv", "unsetenv", "cd", NULL};
 	for (i = 0; builtin[i]; i++)
 	{
 		if (builtin[i] == NULL)
@@ -51,7 +49,8 @@ int check_builtin(char **line)
 		if (_strcmp(line[0], builtin[i]) == 0)
 		{
 			builtin_exec(line, i);
-			return (0);
+			break;
 		}
 	}
+	return (0);
 }

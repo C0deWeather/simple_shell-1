@@ -39,7 +39,6 @@ char *_strcpy(char *dest, char *src);
 int _strncmp(char *s1, char *s2, int n);
 char *get_env(char *name);
 int cmd_exec(char **input);
-void builtin_env(void);
-void _puts(char *str_input);
+void builtin_env(char **line);
 
 #endif
