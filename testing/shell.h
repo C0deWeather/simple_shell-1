@@ -11,23 +11,10 @@
 #include <dirent.h>
 #include <sys/wait.h>
 
-/**
- * container - a struct that holds the current state of the shell
- * @p_path: program path
- * @usr_input: user's input
- * @i: counter
- */
-typedef struct container
-{
-	char *p_path;
-	char **usr_input;
-	int i;
-} container;
-
-void exit_hsh(container value);
 extern char **environ;
+int _putchar(char c);
 char **parse_line(char *line);
-void hsh_loop(char *prg_path);
+void hsh_loop(void);
 int read_line(char **cmd_buff);
 void print_prompt(char *prompt);
 char *find_exe(char *cmd);

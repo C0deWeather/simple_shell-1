@@ -12,7 +12,7 @@ void hsh_loop(char *prg_path)
 	char **line;
 	/*container state;*/
 
-	while (1)
+	while (!(0))
 	{
 		print_prompt("cisfun$ ");
 		status = read_line(&cmd_buff);
@@ -29,12 +29,19 @@ void hsh_loop(char *prg_path)
 		}
 		line = parse_line(cmd_buff);
 		/*state.p_path = prg_path; state.i = counter; state.usr_input = line;*/
-		i = cmd_exec(line);
-		if (i == -1)
-			_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
-		free(line);
-		free(cmd_buff);
-		counter++;
+
+		/*Check if line is a builtin cmd*/
+		if (!(check_builtin(line)))
+			;
+		else
+		{
+			i = cmd_exec(line);
+			if (i == -1)
+				_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
+			free(line);
+			free(cmd_buff);
+			counter++;
+		}
 	}
 	_putchar('\n');
 }
