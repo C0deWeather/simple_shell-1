@@ -2,7 +2,7 @@
 /**
  * cmd_exec - resposible for cmd execution in forked process
  * @input: Array of strings taken as input
- * Return: will return 0 upon success and 1 upon failure
+ * Return: will return 0 upon success and -1 upon failure
  */
 int cmd_exec(char **input)
 {
@@ -14,23 +14,14 @@ int cmd_exec(char **input)
 	env = environ;
 	abs_path = find_exe(*input);
 	if (abs_path == NULL)
-	{
-		perror("Not found");
 		return (-1);
-	}
 	pid = fork();
 	if (pid == -1)
-	{
-		perror("failure creating process");
-		return (1);
-	}
+		return (-1);
 	else if (pid == 0)
 	{
 		if (execve(abs_path, input, env) == -1)
-		{
-			perror("argv[0]: ");
-			return (1);
-		}
+			return (-1);
 	}
 	if (pid > 0)
 		wait(&status);

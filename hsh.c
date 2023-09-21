@@ -7,8 +7,9 @@
  * @env: the environment variable
  * Return: Alway 0 (succes)
  */
-int main(void)
+int main(int ac, char **av)
 {
-	hsh_loop();
+	if (ac == 1)
+		hsh_loop(av[0]);
 	return (0);
 }
