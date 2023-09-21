@@ -27,7 +27,7 @@ void hsh_loop(void)
 		line = parse_line(cmd_buff);
 
   	/*<<<<< Added line start here >>>>>>*/
-		if (!(check_builtin()))
+		if (!(check_builtin(line)))
 			;
 		else
 		{

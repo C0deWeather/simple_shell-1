@@ -3,7 +3,7 @@
 /**
  * _puts - Would print string passed to it
  * @str_input: The string taken as parameter
- */
+ *
 void _puts(char *str_input)
 {
 	int i = 0;
@@ -11,17 +11,20 @@ void _puts(char *str_input)
 	for (i = 0; str_input[i]; i++)
 		_putchar(str_input[i]);
 }
+*/
 
 /**
  * builtin_env - Responsible for printing current env
  */
-void builtin_env(void)
+void builtin_env(char **str)
 {
 	char **env;
-
-	for (env = environ; *env; env++)
+	int i'
+	if (str[i + 1])
+		_printf("env: '%s': No such file or directory", str[1]);
+	else
 	{
-		_puts(*env);
-		_putchar('\n');
+		for (env = environ; *env; env++)
+		_printf("%s\n", *env);
 	}
 }
