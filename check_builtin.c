@@ -1,4 +1,8 @@
 #include "shell.h"
+/**
+ * builtin_exec - Would toggle any of the builtin to call
+ * @usr_in: The array of string entered by the user
+
 
 void builtin_exec(char **usr_in, int position)
 {
