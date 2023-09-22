@@ -12,6 +12,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+char **get_input(int *counter);
 extern char **environ;
 char **parse_line(char *line);
 void hsh_loop(char *prg_path);
