@@ -7,9 +7,12 @@
  */
 int cmd_exec(char **input)
 {
+
+	_printf("input contains: %s\n", input[0]);
+	/*
 	char *abs_path;
 	pid_t pid;
-	int status, i;
+	int status;
 	char **env;
 	char *cmd_list[] = {NULL, NULL};
 
@@ -22,9 +25,6 @@ int cmd_exec(char **input)
 	if (abs_path == NULL)
 		return (-1);
 
-	cmd_list[0] = abs_path;
-	for (i = 0; input[i]; i++)
-		cmd_list[i + 1] = input[i];
 	pid = fork();
 	if (pid == -1)
 	{
@@ -33,12 +33,12 @@ int cmd_exec(char **input)
 	}
 	else if (pid == 0)
 	{
-		if (execve(abs_path, cmd_list, env) == -1)
+		if (execve(input[0], input, env) == -1)
 			return (-1);
 	}
 	if (pid > 0)
 		wait(&status);
 	free(abs_path);
-
+*/
 	return (0);
 }
