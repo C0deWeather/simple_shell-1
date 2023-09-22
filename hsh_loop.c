@@ -7,23 +7,16 @@
  */
 void hsh_loop(char *prg_path)
 {
-	char *cmd_buff = NULL;
-	int status = 0, counter = 1, i = 0;
-	char **line;
-	(void)prg_path;
+	int counter = 1, i = 0;
+	char **input;
 
 	while (!(0))
 	{
 		print_prompt("cisfun$ ");
-		status = read_line(&cmd_buff);
-		if (status == -1)
+		input = get_input(&counter);
+		if (*input == NULL)
 		{
-			free(cmd_buff);
-			break;
-		}
-		if (*cmd_buff == '\0')
-		{
-			free(cmd_buff);
+			free(input);
 			counter++;
 			continue;
 		}
@@ -32,14 +25,12 @@ void hsh_loop(char *prg_path)
 		if (check_builtin(line) == 0);
 		else
 		{
-			i = cmd_exec(line);
+			i = cmd_exec(input);
 			if (i == -1)
-				_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
+				_printf("%s: %d: %s: %s\n", prg_path, counter, *input, "not found");
 		}
-		free(line);                                                   free(cmd_buff);
-                        counter++;
+		free(input);
+		counter++;
 	}
 	_putchar('\n');
-
-
 }

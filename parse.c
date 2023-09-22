@@ -16,7 +16,7 @@ char **parse_line(char *line)
 
 	if (line == NULL)
 	{
-		perror("Input line cannot be NULL!");
+		printf("input is NULL");
 		return (NULL);
 	}
 	/*count tokens*/
@@ -40,4 +40,35 @@ char **parse_line(char *line)
 	free(temp);
 	return (tokens);
 }
+
+/**
+ * get_input - reads and parse input from user
+ * @counter: pointer to an int that keeps track of loop runs
+ *
+ * Return: array of strings containing cmd entered
+ * by user and its corresponding args, otherwise NULL.
+ */
+char **get_input(int *counter)
+{
+	char *cmd_buff = NULL;
+	char **input;
+
+	if (read_line(&cmd_buff) == -1)
+	{
+		free(cmd_buff);
+		(*counter)++;
+		_putchar('\n');
+		exit(EXIT_SUCCESS);
+	}
+	if (*cmd_buff == '\0')
+	{
+		free(cmd_buff);
+		return (NULL);
+	}
+	input = parse_line(cmd_buff);
+	free(cmd_buff);
+	return (input);
+}
+	
+
 
