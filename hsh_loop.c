@@ -28,9 +28,8 @@ void hsh_loop(char *prg_path)
 			continue;
 		}
 		line = parse_line(cmd_buff);
-
 		/*Check if line is a builtin cmd*/
-		if (!(check_builtin(line)));
+		if (check_builtin(line) == 0);
 		else
 		{
 			i = cmd_exec(line);
@@ -41,4 +40,6 @@ void hsh_loop(char *prg_path)
                         counter++;
 	}
 	_putchar('\n');
+
+
 }
