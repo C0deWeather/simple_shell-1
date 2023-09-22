@@ -5,6 +5,5 @@
  */
 void builtin_exit(void)
 {
-	printf("Exiting the shell...\n");
 	exit(EXIT_SUCCESS);
 }

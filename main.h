@@ -34,7 +34,7 @@ typedef struct print_d
 {
 	char specifier;
 	FuncPtr function;
-} SpecifierInf;
+} SpecifierInfo;
 
 /**
  * print_u - represents a format specifier and a corresponding function pointer

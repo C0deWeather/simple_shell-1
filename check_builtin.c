@@ -43,15 +43,14 @@ int check_builtin(char **line)
 {
 	int i;
 	char *builtin[] = {"env", "exit", "setenv", "unsetenv", "cd", NULL};
+
 	for (i = 0; builtin[i]; i++)
 	{
-		if (builtin[i] == NULL)
-			return (1);
 		if (_strcmp(line[0], builtin[i]) == 0)
 		{
 			builtin_exec(line, i);
-			break;
+			return (0);
 		}
 	}
-	return (0);
+	return (1);
 }

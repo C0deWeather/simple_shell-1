@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "main.h"
 
 /**
  * hsh_loop - command loop
@@ -9,16 +10,14 @@ void hsh_loop(char *prg_path)
 	char *cmd_buff = NULL;
 	int status = 0, counter = 1, i = 0;
 	char **line;
-	/*container state;*/
+	(void)prg_path;
 
 	while (!(0))
 	{
-		if (isatty(STDIN_FILENO))
-			print_prompt("cisfun$ ");
+		print_prompt("cisfun$ ");
 		status = read_line(&cmd_buff);
 		if (status == -1)
 		{
-			perror("Getline has failed");
 			free(cmd_buff);
 			break;
 		}
@@ -31,17 +30,15 @@ void hsh_loop(char *prg_path)
 		line = parse_line(cmd_buff);
 
 		/*Check if line is a builtin cmd*/
-		if (check_builtin(line) == 0)
-			;
+		if (!(check_builtin(line)));
 		else
 		{
 			i = cmd_exec(line);
 			if (i == -1)
-				printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
+				_printf("%s: %d: %s: %s\n", prg_path, counter, *line, "not found");
 		}
-		free(line);
-		free(cmd_buff);
-		counter++;
+		free(line);                                                   free(cmd_buff);
+                        counter++;
 	}
 	_putchar('\n');
 }
