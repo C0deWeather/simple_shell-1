@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "main.h"
 
 /**
  * parse_line - split input string into tokens
@@ -43,32 +44,25 @@ char **parse_line(char *line)
 
 /**
  * get_input - reads and parse input from user
+ * @cmd_buff: pointer to buffer that holds user input
  * @counter: pointer to an int that keeps track of loop runs
  *
  * Return: array of strings containing cmd entered
  * by user and its corresponding args, otherwise NULL.
  */
-char **get_input(int *counter)
+char **get_input(char **cmd_buff, int *counter)
 {
-	char *cmd_buff = NULL;
 	char **input;
 
-	if (read_line(&cmd_buff) == -1)
+	if (read_line(cmd_buff) == -1)
 	{
-		free(cmd_buff);
+		free(*cmd_buff);
 		(*counter)++;
 		_putchar('\n');
 		exit(EXIT_SUCCESS);
 	}
-	if (*cmd_buff == '\0')
-	{
-		free(cmd_buff);
+	if (**cmd_buff == '\0')
 		return (NULL);
-	}
-	input = parse_line(cmd_buff);
-	free(cmd_buff);
+	input = parse_line(*cmd_buff);
 	return (input);
 }
-	
-
-

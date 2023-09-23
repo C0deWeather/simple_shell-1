@@ -39,7 +39,7 @@ void builtin_exec(char **line, int actual_case)
  *
  * Return: returns 0 on success, otherwise it returns 1.
  */
-int check_builtin(char **line)
+int check_builtin(char **line, char **cmd_buff)
 {
 	int i;
 	char *builtin[] = {"env", "exit", "setenv", "unsetenv", "cd", NULL};
@@ -48,6 +48,12 @@ int check_builtin(char **line)
 	{
 		if (_strcmp(line[0], builtin[i]) == 0)
 		{
+			if (i == 1)
+			{
+				free(line);
+				free(*cmd_buff);
+				builtin_exit();
+			}
 			builtin_exec(line, i);
 			return (0);
 		}

@@ -8,11 +8,14 @@
 #include <unistd.h>
 
 /**
- * number - struct represents a numerical value with
+ * struct number - struct represents a numerical value with
  * additional information about its sign and size.
  * @array: array of integers that store digits of the number
  * @size: size of the array
  * @sign: sign of the number
+ *
+ * Description: The number struct is a data structure designed to represent
+ * a numerical value along with additional information about its sign and size
  */
 typedef struct number
 {
@@ -26,9 +29,13 @@ typedef int (*StrPtr)(char *);
 typedef int (*UnPtr)(size_t);
 
 /**
- * print_t - represents a format specifier and a corresponding function pointer
- * @s: format specifier
- * @p: function pointer
+ * struct print_d - represents a format specifier and a corresponding function
+ * pointer
+ * @specifier: format specifier
+ * @function: function pointer
+ *
+ * Desription: The print_d struct is a data structure designed to represent
+ * and associate a format specifier with its corresponding function pointer.
  */
 typedef struct print_d
 {
@@ -37,9 +44,16 @@ typedef struct print_d
 } SpecifierInfo;
 
 /**
- * print_u - represents a format specifier and a corresponding function pointer
+ * struct print_u - represents a format specifier and a corresponding
+ * function pointer
  * @s: format specifier
  * @u: function pointer
+ *
+ * Description: The print_u struct is a data structure designed to encapsulate
+ * and associate a format specifier and its corresponding function pointer.
+ * It is typically used in the context of formatting and
+ * printing data in a program, particularly in cases where different
+ * format specifiers require distinct processing functions.
  */
 typedef struct print_u
 {
@@ -62,6 +76,5 @@ number parse_un(size_t n);
 UnPtr CheckUnSpecifier(char c);
 int ChoSpecFunc(char c, va_list args);
 void builtin_exec(char **line, int actual_case);
-int check_builtin(char **line);
 #endif
 

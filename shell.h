@@ -12,7 +12,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-char **get_input(int *counter);
+char **get_input(char **cmd_buff, int *counter);
 extern char **environ;
 char **parse_line(char *line);
 void hsh_loop(char *prg_path);
@@ -30,7 +30,7 @@ int cmd_exec(char **input);
 void builtin_env(char **line);
 int is_a_path(const char *cmd);
 void builtin_exit(void);
-int check_builtin(char **line);
+int check_builtin(char **line, char **cmd_buff);
 int _putchar(int c);
 int _puts(char *str);
 

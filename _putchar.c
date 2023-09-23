@@ -27,7 +27,7 @@ int _puts(char *str)
 
 	while (str[string_length] != '\0')
 	{
- 		_putchar(str[string_length]);
+		_putchar(str[string_length]);
 		string_length++;
 	}
 	return (string_length);
